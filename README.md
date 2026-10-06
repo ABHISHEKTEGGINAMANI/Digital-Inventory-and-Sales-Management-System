@@ -1,4 +1,4 @@
-# ApexFlow — Smart Inventory, POS Billing & Sales Analytics System
+# Digital Inventory and Sales Management System (ApexFlow)
 
 An enterprise-grade, web-based business management system designed specifically for small businesses, retail shops, tech stores, and cafes. ApexFlow brings together real-time inventory tracking, lightning-fast POS billing, automated low-stock procurement alerts, and comprehensive financial sales analytics in a single unified, responsive web application.
 
