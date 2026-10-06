@@ -1,0 +1,192 @@
+/* Print Stylesheet for Receipts & Invoices */
+
+@media print {
+  @page {
+    margin: 5mm;
+    size: auto;
+  }
+
+  *, *::before, *::after {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* 1. HIDE ALL WEB APP UI & UNRELATED MODALS */
+  .app-container,
+  .app-sidebar,
+  .app-main,
+  .app-header,
+  .content-area,
+  .view-section,
+  .toast-container,
+  #modal-product,
+  #modal-stock-in,
+  #modal-custom-item,
+  .modal-overlay:not(#modal-receipt),
+  #modal-receipt .modal-header,
+  #modal-receipt .modal-footer,
+  .no-print {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* 2. DISPLAY ONLY THE RECEIPT MODAL & BILL CONTENT */
+  #modal-receipt {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    z-index: auto !important;
+  }
+
+  #modal-receipt .modal-dialog {
+    display: block !important;
+    position: static !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  #modal-receipt .modal-body {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #000000 !important;
+    border-radius: 0 !important;
+  }
+
+  #modal-receipt #receipt-preview-content {
+    display: block !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+  }
+
+  /* 3. PRINTABLE RECEIPT / BILL LAYOUT */
+  .printable-receipt {
+    display: block !important;
+    width: 80mm !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+    padding: 6mm 4mm !important;
+    font-family: 'JetBrains Mono', 'Courier New', Courier, monospace !important;
+    font-size: 11px !important;
+    line-height: 1.4 !important;
+    color: #000000 !important;
+    background: #ffffff !important;
+    box-sizing: border-box !important;
+  }
+
+  .receipt-header {
+    text-align: center !important;
+    border-bottom: 1px dashed #000000 !important;
+    padding-bottom: 8px !important;
+    margin-bottom: 8px !important;
+    color: #000000 !important;
+  }
+
+  .receipt-title {
+    font-size: 15px !important;
+    font-weight: 800 !important;
+    text-transform: uppercase !important;
+    color: #000000 !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  .receipt-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+    margin: 8px 0 !important;
+    color: #000000 !important;
+  }
+
+  .receipt-table th {
+    border-bottom: 1px solid #000000 !important;
+    text-align: left !important;
+    font-size: 10px !important;
+    padding: 4px 0 !important;
+    color: #000000 !important;
+  }
+
+  .receipt-table td {
+    padding: 4px 0 !important;
+    font-size: 11px !important;
+    color: #000000 !important;
+    vertical-align: top !important;
+  }
+
+  .receipt-totals {
+    border-top: 1px dashed #000000 !important;
+    padding-top: 6px !important;
+    margin-top: 6px !important;
+    color: #000000 !important;
+  }
+
+  .receipt-line {
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-bottom: 3px !important;
+    color: #000000 !important;
+  }
+
+  .receipt-line.bold {
+    font-weight: 800 !important;
+    font-size: 13px !important;
+    border-top: 1px solid #000000 !important;
+    padding-top: 5px !important;
+    margin-top: 5px !important;
+    color: #000000 !important;
+  }
+
+  .receipt-footer {
+    text-align: center !important;
+    margin-top: 12px !important;
+    font-size: 10px !important;
+    border-top: 1px dashed #000000 !important;
+    padding-top: 8px !important;
+    color: #000000 !important;
+  }
+}
