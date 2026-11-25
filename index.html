@@ -4,7 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ApexFlow — Smart Inventory, POS Billing & Sales Analytics</title>
+  <title>ApexFlow - Smart Inventory, POS Billing & Sales Analytics</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
   <meta name="description"
     content="Next-generation web-based inventory management, point-of-sale billing, and sales analytics system for small businesses with real-time low-stock alerts.">
 
@@ -76,7 +78,8 @@
             <path d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
           </svg>
           <span>Inventory Catalog</span>
-          <button type="button" class="sidebar-add-pill" data-action="add-product" title="Quick Add Product">+ Add</button>
+          <button type="button" class="sidebar-add-pill" data-action="add-product" title="Quick Add Product">+
+            Add</button>
         </a>
 
         <a class="nav-item" data-view="alerts" id="nav-alerts">
@@ -99,7 +102,8 @@
             <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
           </svg>
           <span>Regular Customers</span>
-          <span class="badge badge-primary" id="sidebar-vip-count" style="margin-left:auto; font-size:0.7rem; padding:1px 6px;">VIP</span>
+          <span class="badge badge-primary" id="sidebar-vip-count"
+            style="margin-left:auto; font-size:0.7rem; padding:1px 6px;">VIP</span>
         </a>
 
         <div class="nav-section-title">Reports & Intel</div>
@@ -156,7 +160,8 @@
 
         <div class="header-right">
           <!-- Fast Add Product shortcut -->
-          <button class="btn btn-secondary btn-sm" data-action="add-product" id="btn-header-add-product" title="Add New Product to Catalog (F7 / Alt+N)">
+          <button class="btn btn-secondary btn-sm" data-action="add-product" id="btn-header-add-product"
+            title="Add New Product to Catalog (F7 / Alt+N)">
             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <line x1="12" y1="5" x2="12" y2="19"></line>
               <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -213,7 +218,10 @@
             </div>
             <div style="display:flex; gap:0.5rem;">
               <button class="btn btn-primary btn-sm" data-action="add-product" title="Quick Add Product to Catalog">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <line x1="12" y1="5" x2="12" y2="19"></line>
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                </svg>
                 + Add Product
               </button>
               <button class="btn btn-warning btn-sm" data-navigate="alerts">
@@ -255,7 +263,7 @@
               </div>
             </div>
 
-            <div class="card kpi-card purple">
+            <div class="card kpi-card info">
               <div class="kpi-top">
                 <span class="kpi-label">Inventory Valuation</span>
                 <div class="kpi-icon-box">
@@ -377,8 +385,12 @@
                     placeholder="Scan Barcode or Search SKU / Product (Press Enter to add)..." autofocus>
                   <span class="scanner-tag">Scanner Active</span>
                 </div>
-                <button type="button" class="pos-search-add-btn" data-action="add-product" id="btn-pos-add-product" title="Add New Product to Catalog">
-                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <button type="button" class="pos-search-add-btn" data-action="add-product" id="btn-pos-add-product"
+                  title="Add New Product to Catalog">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19" />
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                  </svg>
                   <span>+ Add Product</span>
                 </button>
               </div>
@@ -665,7 +677,7 @@
               <div class="kpi-trend trend-up">Revenue minus Cost of Goods</div>
             </div>
 
-            <div class="card kpi-card purple">
+            <div class="card kpi-card info">
               <div class="kpi-label">Profit Margin</div>
               <div class="kpi-value" id="analytics-margin">0.0%</div>
               <div class="kpi-trend trend-neutral">Average profit margin</div>
@@ -762,12 +774,14 @@
 
           <!-- VIP Customer Intelligence KPI Cards -->
           <div class="kpi-grid">
-            <div class="card kpi-card purple">
+            <div class="card kpi-card info">
               <div class="kpi-top">
                 <span class="kpi-label">Top VIP Spender</span>
                 <div class="kpi-icon-box">
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                    <path
+                      d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z">
+                    </path>
                   </svg>
                 </div>
               </div>
@@ -833,7 +847,7 @@
             <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
               <div>
                 <h3 style="font-family:var(--font-display); font-size:1.2rem; font-weight:700;">
-                  👑 VIP Customer Podium
+                  VIP Customer Podium
                 </h3>
                 <p style="font-size:0.8rem; color:var(--text-secondary);">
                   Top store customers ranked according to maximum purchase volume
@@ -851,8 +865,12 @@
             <div style="display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:space-between;">
               <div style="display:flex; gap:0.75rem; flex:1; min-width:300px; flex-wrap:wrap;">
                 <div class="search-box" style="flex:1; min-width:200px;">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                  <input type="text" class="form-control" id="cust-search-input" placeholder="Search regular customer name, phone, notes...">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                  </svg>
+                  <input type="text" class="form-control" id="cust-search-input"
+                    placeholder="Search regular customer name, phone, notes...">
                 </div>
 
                 <select class="form-select" id="cust-sort-select" style="width:240px;">
@@ -864,20 +882,27 @@
 
                 <select class="form-select" id="cust-tier-filter" style="width:160px;">
                   <option value="all">All Loyalty Tiers</option>
-                  <option value="Platinum">👑 Platinum VIP (₹3500+)</option>
-                  <option value="Gold">🥇 Gold VIP (₹1800+)</option>
-                  <option value="Silver">🥈 Silver Regular (₹800+)</option>
-                  <option value="Bronze">🥉 Bronze Regular</option>
+                  <option value="Platinum">Platinum VIP (₹3500+)</option>
+                  <option value="Gold">Gold VIP (₹1800+)</option>
+                  <option value="Silver">Silver Regular (₹800+)</option>
+                  <option value="Bronze">Bronze Regular</option>
                 </select>
               </div>
 
               <div style="display:flex; gap:0.75rem;">
                 <button class="btn btn-secondary" id="btn-export-customers-csv">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
                   Export CSV
                 </button>
                 <button class="btn btn-primary" id="btn-add-customer">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
                   Register Customer
                 </button>
               </div>
@@ -954,11 +979,6 @@
                   <label class="form-label">Currency Symbol</label>
                   <select class="form-select" id="set-currency">
                     <option value="₹" selected>₹ (INR - Indian Rupee)</option>
-                    <option value="$">$ (USD / CAD / AUD)</option>
-                    <option value="€">€ (EUR)</option>
-                    <option value="£">£ (GBP)</option>
-                    <option value="¥">¥ (JPY / CNY)</option>
-                    <option value="AED ">AED (Dirhams)</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -1020,6 +1040,21 @@
               </button>
             </div>
           </div>
+
+          <!-- Legal Links -->
+          <div class="card" style="max-width: 800px; margin: 1.5rem auto 0;">
+            <div class="card-header">
+              <div class="card-title">Legal</div>
+            </div>
+            <div style="display:flex; gap:1.5rem; font-size:0.85rem;">
+              <a href="privacy.html"
+                style="color:var(--text-secondary); text-decoration:underline; text-underline-offset:3px;">Privacy
+                Policy</a>
+              <a href="terms.html"
+                style="color:var(--text-secondary); text-decoration:underline; text-underline-offset:3px;">Terms and
+                Conditions</a>
+            </div>
+          </div>
         </section>
 
       </div>
@@ -1047,14 +1082,26 @@
             <div class="form-group">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
                 <label class="form-label" style="margin-bottom:0;">SKU</label>
-                <button type="button" id="btn-regen-sku" style="font-size:0.7rem; color:var(--text-muted); background:none; border:none; cursor:pointer;" title="Generate new random SKU">🔄 Auto</button>
+                <button type="button" id="btn-regen-sku"
+                  style="font-size:0.7rem; color:var(--text-muted); background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:2px;"
+                  title="Generate new random SKU"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                  </svg> Auto</button>
               </div>
               <input type="text" class="form-control" id="prod-sku" required>
             </div>
             <div class="form-group">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
                 <label class="form-label" style="margin-bottom:0;">Barcode Number</label>
-                <button type="button" id="btn-regen-barcode" style="font-size:0.7rem; color:var(--text-muted); background:none; border:none; cursor:pointer;" title="Generate new random Barcode">🔄 Auto</button>
+                <button type="button" id="btn-regen-barcode"
+                  style="font-size:0.7rem; color:var(--text-muted); background:none; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:2px;"
+                  title="Generate new random Barcode"><svg width="10" height="10" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2.5">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"></path>
+                  </svg> Auto</button>
               </div>
               <input type="text" class="form-control" id="prod-barcode" required>
             </div>
@@ -1064,7 +1111,8 @@
             <div class="form-group" style="flex:1;">
               <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
                 <label class="form-label" style="margin-bottom:0;">Category</label>
-                <button type="button" id="btn-toggle-new-cat" style="font-size:0.75rem; color:var(--accent-primary); background:none; border:none; cursor:pointer; font-weight:600;">
+                <button type="button" id="btn-toggle-new-cat"
+                  style="font-size:0.75rem; color:var(--accent-primary); background:none; border:none; cursor:pointer; font-weight:600;">
                   + New Category
                 </button>
               </div>
@@ -1074,7 +1122,8 @@
               <!-- Inline Quick Add Category Input Group -->
               <div id="new-cat-input-group" style="display:none; margin-top:0.5rem;">
                 <div style="display:flex; gap:0.4rem;">
-                  <input type="text" class="form-control form-control-sm" id="input-new-cat-name" placeholder="New category name...">
+                  <input type="text" class="form-control form-control-sm" id="input-new-cat-name"
+                    placeholder="New category name...">
                   <button type="button" class="btn btn-primary btn-sm" id="btn-save-new-cat">Add</button>
                 </div>
               </div>
@@ -1208,18 +1257,21 @@
       <form id="form-custom-item">
         <div class="modal-body">
           <p style="font-size:0.825rem; color:var(--text-secondary); margin-bottom:1rem;">
-            Ring up a custom-priced item or service for this sale, and optionally save it into your permanent inventory catalog.
+            Ring up a custom-priced item or service for this sale, and optionally save it into your permanent inventory
+            catalog.
           </p>
 
           <div class="form-group">
             <label class="form-label">Product / Service Name</label>
-            <input type="text" class="form-control" id="custom-item-name" placeholder="e.g. Custom Repair Service, Unlisted Cable" required>
+            <input type="text" class="form-control" id="custom-item-name"
+              placeholder="e.g. Custom Repair Service, Unlisted Cable" required>
           </div>
 
           <div class="form-row">
             <div class="form-group">
               <label class="form-label">Custom Selling Price (<span class="currency-label">₹</span>)</label>
-              <input type="number" step="0.01" min="0" class="form-control" id="custom-item-price" placeholder="0.00" required>
+              <input type="number" step="0.01" min="0" class="form-control" id="custom-item-price" placeholder="0.00"
+                required>
             </div>
             <div class="form-group">
               <label class="form-label">Quantity</label>
@@ -1234,17 +1286,22 @@
             </select>
           </div>
 
-          <div class="form-group" style="background:var(--bg-glass); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:0.85rem; margin-top:0.75rem;">
-            <label style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; margin-bottom:0; font-size:0.85rem; font-weight:600; color:var(--text-primary);">
-              <input type="checkbox" id="custom-item-save-catalog" style="width:16px; height:16px; accent-color:var(--accent-primary);">
+          <div class="form-group"
+            style="background:var(--bg-glass); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:0.85rem; margin-top:0.75rem;">
+            <label
+              style="display:flex; align-items:center; gap:0.6rem; cursor:pointer; margin-bottom:0; font-size:0.85rem; font-weight:600; color:var(--text-primary);">
+              <input type="checkbox" id="custom-item-save-catalog"
+                style="width:16px; height:16px; accent-color:var(--accent-primary);">
               <span>Save permanently into Inventory Catalog</span>
             </label>
-            
-            <div id="custom-item-catalog-fields" style="display:none; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
+
+            <div id="custom-item-catalog-fields"
+              style="display:none; margin-top:0.75rem; padding-top:0.75rem; border-top:1px solid var(--border-subtle);">
               <div class="form-row">
                 <div class="form-group" style="margin-bottom:0;">
                   <label class="form-label">Cost Price (<span class="currency-label">₹</span>)</label>
-                  <input type="number" step="0.01" min="0" class="form-control" id="custom-item-cost" placeholder="0.00" value="0.00">
+                  <input type="number" step="0.01" min="0" class="form-control" id="custom-item-cost" placeholder="0.00"
+                    value="0.00">
                 </div>
                 <div class="form-group" style="margin-bottom:0;">
                   <label class="form-label">Stock Quantity</label>
@@ -1269,7 +1326,8 @@
       <div class="modal-header">
         <div>
           <h3 class="modal-title" id="cust-history-name">Customer Ledger & Invoices</h3>
-          <div id="cust-history-meta" style="font-size:0.8rem; color:var(--text-secondary); display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
+          <div id="cust-history-meta"
+            style="font-size:0.8rem; color:var(--text-secondary); display:flex; gap:0.5rem; flex-wrap:wrap; align-items:center; margin-top:0.25rem;">
             <!-- Populated dynamically -->
           </div>
         </div>
@@ -1296,12 +1354,14 @@
       <form id="form-add-customer">
         <div class="modal-body">
           <p style="font-size:0.825rem; color:var(--text-secondary); margin-bottom:1rem;">
-            Add a client to your regular VIP roster for instant POS identification, maximum purchase tracking, and loyalty rewards.
+            Add a client to your regular VIP roster for instant POS identification, maximum purchase tracking, and
+            loyalty rewards.
           </p>
 
           <div class="form-group">
             <label class="form-label">Full Name *</label>
-            <input type="text" class="form-control" id="add-cust-name" placeholder="e.g. Ramesh Patel, Sarah Jenkins" required>
+            <input type="text" class="form-control" id="add-cust-name" placeholder="e.g. Ramesh Patel, Sarah Jenkins"
+              required>
           </div>
 
           <div class="form-row">
@@ -1317,7 +1377,8 @@
 
           <div class="form-group">
             <label class="form-label">Notes / Preferences</label>
-            <textarea class="form-control" id="add-cust-notes" rows="2" placeholder="e.g. Wholesale buyer, prefers cash, organic items enthusiast..."></textarea>
+            <textarea class="form-control" id="add-cust-notes" rows="2"
+              placeholder="e.g. Wholesale buyer, prefers cash, organic items enthusiast..."></textarea>
           </div>
         </div>
         <div class="modal-footer">

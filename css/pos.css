@@ -73,7 +73,7 @@
   padding: 0.45rem 0.95rem;
   background: var(--bg-glass);
   border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   font-size: 0.8rem;
   font-weight: 500;
   color: var(--text-secondary);

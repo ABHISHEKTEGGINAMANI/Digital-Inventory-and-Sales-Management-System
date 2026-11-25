@@ -1,7 +1,3 @@
-/**
- * ApexFlow State Management & LocalStorage Persistence Engine
- */
-
 class Store {
   constructor() {
     this.STORAGE_KEYS = {
@@ -32,19 +28,12 @@ class Store {
     localStorage.setItem(this.STORAGE_KEYS.SETTINGS, JSON.stringify(DEFAULT_SETTINGS));
     localStorage.setItem(this.STORAGE_KEYS.CATEGORIES, JSON.stringify(DEFAULT_CATEGORIES));
     localStorage.setItem(this.STORAGE_KEYS.PRODUCTS, JSON.stringify(DEFAULT_PRODUCTS));
-    
+
     const seedTxns = generateSeedTransactions();
     localStorage.setItem(this.STORAGE_KEYS.TRANSACTIONS, JSON.stringify(seedTxns));
 
-    const defaultCusts = [
-      { id: "cust-1", name: "Samantha Reed", phone: "+91 98201 12345", email: "samantha.r@techcorp.io", notes: "Prefers UPI & high-end audio gear", createdAt: new Date(Date.now() - 30 * 86400000).toISOString() },
-      { id: "cust-2", name: "David Chen", phone: "+91 98450 98765", email: "d.chen@designstudio.co", notes: "Regular designer customer, bulk office orders", createdAt: new Date(Date.now() - 28 * 86400000).toISOString() },
-      { id: "cust-3", name: "Elena Rostova", phone: "+91 98110 54321", email: "elena.r@architects.in", notes: "VIP Platinum buyer", createdAt: new Date(Date.now() - 25 * 86400000).toISOString() },
-      { id: "cust-4", name: "Marcus Vance", phone: "+91 98330 77112", email: "marcus@vanceventures.com", notes: "Frequent executive buyer", createdAt: new Date(Date.now() - 20 * 86400000).toISOString() },
-      { id: "cust-5", name: "Olivia Bennett", phone: "+91 98711 33445", email: "olivia.b@creativemind.org", notes: "Coffee & tumbler lover", createdAt: new Date(Date.now() - 15 * 86400000).toISOString() }
-    ];
-    localStorage.setItem(this.STORAGE_KEYS.CUSTOMERS, JSON.stringify(defaultCusts));
-    
+    localStorage.setItem(this.STORAGE_KEYS.CUSTOMERS, JSON.stringify([]));
+
     this.emit("store:reset", null);
   }
 
@@ -272,7 +261,6 @@ class Store {
       this.emit("products:updated", products);
     }
 
-    // Calculate totals
     let subtotal = 0;
     let totalCost = 0;
 
@@ -336,7 +324,7 @@ class Store {
     const txn = transactions.find(t => t.id === transactionId);
     if (!txn || txn.status === "Refunded") return false;
 
-    // Restore stock
+
     const products = this.getProducts();
     txn.items.forEach(item => {
       const prod = products.find(p => p.id === item.productId);
@@ -354,20 +342,12 @@ class Store {
     return true;
   }
 
-  // --- CUSTOMER & VIP MANAGEMENT ---
   getRegisteredCustomers() {
     try {
       const data = localStorage.getItem(this.STORAGE_KEYS.CUSTOMERS);
       if (data) return JSON.parse(data);
-      const defaultCusts = [
-        { id: "cust-1", name: "Samantha Reed", phone: "+91 98201 12345", email: "samantha.r@techcorp.io", notes: "Prefers UPI & high-end audio gear", createdAt: new Date(Date.now() - 30 * 86400000).toISOString() },
-        { id: "cust-2", name: "David Chen", phone: "+91 98450 98765", email: "d.chen@designstudio.co", notes: "Regular designer customer, bulk office orders", createdAt: new Date(Date.now() - 28 * 86400000).toISOString() },
-        { id: "cust-3", name: "Elena Rostova", phone: "+91 98110 54321", email: "elena.r@architects.in", notes: "VIP Platinum buyer", createdAt: new Date(Date.now() - 25 * 86400000).toISOString() },
-        { id: "cust-4", name: "Marcus Vance", phone: "+91 98330 77112", email: "marcus@vanceventures.com", notes: "Frequent executive buyer", createdAt: new Date(Date.now() - 20 * 86400000).toISOString() },
-        { id: "cust-5", name: "Olivia Bennett", phone: "+91 98711 33445", email: "olivia.b@creativemind.org", notes: "Coffee & tumbler lover", createdAt: new Date(Date.now() - 15 * 86400000).toISOString() }
-      ];
-      localStorage.setItem(this.STORAGE_KEYS.CUSTOMERS, JSON.stringify(defaultCusts));
-      return defaultCusts;
+      localStorage.setItem(this.STORAGE_KEYS.CUSTOMERS, JSON.stringify([]));
+      return [];
     } catch (e) {
       return [];
     }
@@ -395,7 +375,6 @@ class Store {
     const registered = this.getRegisteredCustomers();
     const customerMap = {};
 
-    // Seed registered customers
     registered.forEach(rc => {
       customerMap[rc.name] = {
         id: rc.id,
@@ -414,7 +393,7 @@ class Store {
       };
     });
 
-    // Aggregate transactions
+
     transactions.forEach(t => {
       if (t.status === "Refunded") return;
       const rawName = (t.customerName || "Walk-in Customer").trim();
@@ -458,27 +437,17 @@ class Store {
 
     const customers = Object.values(customerMap).map(c => {
       const aov = c.orderCount > 0 ? (c.totalSpent / c.orderCount) : 0;
-      
+
       let tier = "Bronze";
-      let tierLabel = "Bronze Regular";
-      let tierBadgeClass = "badge-vip-bronze";
-      let tierIcon = "🥉";
+
 
       if (c.totalSpent >= 3500) {
         tier = "Platinum";
-        tierLabel = "Platinum VIP";
-        tierBadgeClass = "badge-vip-platinum";
-        tierIcon = "👑";
+
       } else if (c.totalSpent >= 1800) {
         tier = "Gold";
-        tierLabel = "Gold VIP";
-        tierBadgeClass = "badge-vip-gold";
-        tierIcon = "🥇";
       } else if (c.totalSpent >= 800) {
         tier = "Silver";
-        tierLabel = "Silver Regular";
-        tierBadgeClass = "badge-vip-silver";
-        tierIcon = "🥈";
       }
 
       return {
@@ -487,13 +456,9 @@ class Store {
         maxPurchase: Number(c.maxPurchase.toFixed(2)),
         aov: Number(aov.toFixed(2)),
         tier,
-        tierLabel,
-        tierBadgeClass,
-        tierIcon
       };
     });
 
-    // Sorting according to selected criterion (Default: maximum purchase)
     if (sortBy === "maxPurchase") {
       customers.sort((a, b) => b.maxPurchase - a.maxPurchase || b.totalSpent - a.totalSpent);
     } else if (sortBy === "orderCount") {
@@ -501,14 +466,13 @@ class Store {
     } else if (sortBy === "recent") {
       customers.sort((a, b) => new Date(b.lastPurchaseDate || 0) - new Date(a.lastPurchaseDate || 0));
     } else {
-      // Default: totalSpent (maximum purchase volume)
+
       customers.sort((a, b) => b.totalSpent - a.totalSpent || b.maxPurchase - a.maxPurchase);
     }
 
     return customers;
   }
 
-  // --- BACKUP & RESTORE ---
   exportBackupJSON() {
     const backup = {
       timestamp: new Date().toISOString(),
@@ -542,5 +506,4 @@ class Store {
   }
 }
 
-// Global Store Instance
 window.appStore = new Store();

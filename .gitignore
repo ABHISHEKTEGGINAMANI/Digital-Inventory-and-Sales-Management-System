@@ -1,0 +1,26 @@
+# Agent / IDE config (not part of the deployable app)
+.agents/
+.agent/
+.gemini/
+.gsd/
+adapters/
+
+# GSD workflow files
+GSD-STYLE.md
+PROJECT_RULES.md
+VERSION
+model_capabilities.yaml
+scripts/
+
+# OS artifacts
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Node (if ever added)
+node_modules/
+dist/
+
+# Environment files
+.env
+.env.local

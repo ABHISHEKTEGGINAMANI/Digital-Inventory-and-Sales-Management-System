@@ -274,7 +274,7 @@ class InventoryManager {
     }
 
     if (this.searchQuery) {
-      filtered = filtered.filter(p => 
+      filtered = filtered.filter(p =>
         p.name.toLowerCase().includes(this.searchQuery) ||
         p.sku.toLowerCase().includes(this.searchQuery) ||
         p.barcode.toLowerCase().includes(this.searchQuery) ||
@@ -656,6 +656,6 @@ class InventoryManager {
   }
 }
 
-window.initInventory = function() {
+window.initInventory = function () {
   window.inventoryManager = new InventoryManager();
 };
